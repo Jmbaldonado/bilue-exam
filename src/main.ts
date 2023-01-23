@@ -1,12 +1,12 @@
 import corsConfig from '@config/cors.config';
+import { AppModule } from '@modules/app.module';
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
-import { AppModule } from '@modules/app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  app.setGlobalPrefix('api/weather');
+  app.setGlobalPrefix('api');
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors(corsConfig);
 
@@ -17,7 +17,6 @@ async function bootstrap() {
     );
   });
 }
-
 bootstrap().catch((e) => {
   Logger.error('❌  Error starting server', e, 'NestJS', false);
   throw e;

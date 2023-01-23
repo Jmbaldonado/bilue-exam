@@ -1,0 +1,37 @@
+service: weather-app-api
+
+useDotenv: true
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  environment:
+    APP_PORT: ${env:APP_PORT}
+    APP_ENV: ${env:APP_ENV}
+    DB_HOST: ${env:DB_HOST}
+    DB_PORT: ${env:DB_PORT}
+    DB_USERNAME: ${env:DB_USERNAME}
+    DB_PASSWORD: ${env:DB_PASSWORD}
+    DB_DATABASE: ${env:DB_DATABASE}
+    DB_LOGGING_FLAG: ${env:DB_LOGGING_FLAG}
+    CORS_WHITELIST: ${env:CORS_WHITELIST}
+    CORS_EXPOSED_HEADERS: ${env:CORS_EXPOSED_HEADERS}
+    CORS_ALLOWED_HEADERS: ${env:CORS_ALLOWED_HEADERS}
+    JWT_SECRET: ${env:JWT_SECRET}
+    JWT_EXPIRATION: ${env:JWT_EXPIRATION}
+    ENABLE_GRAPHQL_TRACING: ${env:ENABLE_GRAPHQL_TRACING}
+    WEATHER_API_KEY: ${env:WEATHER_API_KEY}
+
+functions:
+  main:
+    handler: dist/serverless.handler
+    events:
+    - http:
+        method: ANY
+        path: /
+    - http:
+        method: ANY
+        path: '{proxy+}'

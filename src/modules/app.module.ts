@@ -8,6 +8,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { I18nJsonParser, I18nModule } from 'nestjs-i18n';
 import { join } from 'path';
 import { UserModule } from './user/user.module';
+import { WeatherModule } from './weather/weather.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { UserModule } from './user/user.module';
       },
     }),
     UserModule,
+    WeatherModule,
   ],
   controllers: [],
   providers: [],

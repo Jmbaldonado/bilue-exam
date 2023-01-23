@@ -25,6 +25,8 @@ const ENABLE_GRAPHQL_TRACING =
   process.env.ENABLE_GRAPHQL_TRACING === 'true' ||
   process.env.ENABLE_GRAPHQL_TRACING === undefined;
 
+const WEATHER_API_KEY = process.env.WEATHER_API_KEY || '';
+
 export {
   APP_PORT,
   APP_ENV,
@@ -41,4 +43,5 @@ export {
   JWT_SECRET,
   JWT_EXPIRATION,
   ENABLE_GRAPHQL_TRACING,
+  WEATHER_API_KEY,
 };
