@@ -47,6 +47,11 @@ export class UserTable1674481781242 implements MigrationInterface {
             isNullable: false,
           },
           {
+            name: 'country_code',
+            type: 'varchar',
+            isNullable: false,
+          },
+          {
             name: 'created_at',
             type: 'timestamp',
             default: 'CURRENT_TIMESTAMP',

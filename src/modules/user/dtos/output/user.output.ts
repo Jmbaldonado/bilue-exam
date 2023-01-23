@@ -16,4 +16,7 @@ export class UserOutput {
 
   @Field({ nullable: true })
   zipCode?: number;
+
+  @Field({ nullable: true })
+  countryCode?: string;
 }

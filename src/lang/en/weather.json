@@ -1,0 +1,6 @@
+{
+  "ZIP_REQUIRED": {
+    "message": "Zip code is required",
+    "errorCode": "WZ-0001"
+  }
+}

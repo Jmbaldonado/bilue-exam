@@ -11,6 +11,7 @@ export class UserMapper {
       lastName: user.lastName,
       email: user.email,
       zipCode: user.zipCode,
+      countryCode: user.countryCode,
     };
   }
 

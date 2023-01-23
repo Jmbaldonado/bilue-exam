@@ -17,11 +17,12 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
+    "esModuleInterop": true,
     "paths": {
       "@modules/*": ["src/modules/*"],
       "@entities/*": ["src/data/entities/*"],
       "@config/*": ["src/config/*"],
-      "@common/*": ["src/common/*"],
+      "@common/*": ["src/common/*"]
     }
   }
 }

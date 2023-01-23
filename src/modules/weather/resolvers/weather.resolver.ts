@@ -1,5 +1,5 @@
 import { WeatherService } from '@modules/weather/services/weather.service';
-import { Query, Resolver } from '@nestjs/graphql';
+import { Resolver } from '@nestjs/graphql';
 
 @Resolver()
 export class WeatherResolver {

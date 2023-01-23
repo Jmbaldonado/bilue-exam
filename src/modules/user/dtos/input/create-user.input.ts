@@ -29,4 +29,7 @@ export class CreateUserInput {
 
   @Field()
   zipCode: number;
+
+  @Field()
+  countryCode: string;
 }

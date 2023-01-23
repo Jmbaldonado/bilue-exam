@@ -19,4 +19,7 @@ export class UserEntity extends BaseEntity {
 
   @Column({ name: 'zip_code', nullable: false })
   zipCode: number;
+
+  @Column({ name: 'country_code', nullable: false })
+  countryCode: string;
 }

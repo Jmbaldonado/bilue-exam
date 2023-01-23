@@ -2,16 +2,32 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type WeatherOutput {
+  lon: Float
+  lat: Float
+  main: String
+  description: String
+  temp: Float
+  temp_min: Float
+  temp_max: Float
+  feels_like: Float
+  pressure: Float
+  humidity: Float
+}
+
 type UserOutput {
   id: ID
   email: String
   firstName: String
   lastName: String
   zipCode: Float
+  countryCode: String
 }
 
 type Query {
   getUsers: [UserOutput!]!
+  getUserProfile: UserOutput!
+  getWeather: WeatherOutput!
 }
 
 type Mutation {
@@ -24,4 +40,5 @@ input CreateUserInput {
   firstName: String!
   lastName: String!
   zipCode: Float!
+  countryCode: String!
 }
