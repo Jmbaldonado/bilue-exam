@@ -7,6 +7,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { I18nJsonParser, I18nModule } from 'nestjs-i18n';
 import { join } from 'path';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { join } from 'path';
         path: join(__dirname, '../lang/'),
       },
     }),
+    UserModule,
   ],
   controllers: [],
   providers: [],
