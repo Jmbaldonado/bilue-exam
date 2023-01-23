@@ -1,8 +1,24 @@
+import corsConfig from '@config/cors.config';
+import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './modules/app.module';
+import { NestExpressApplication } from '@nestjs/platform-express';
+import { AppModule } from '@modules/app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  await app.listen(3000);
+  const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  app.setGlobalPrefix('api/weather');
+  app.useGlobalPipes(new ValidationPipe());
+  app.enableCors(corsConfig);
+
+  await app.listen(+process.env.APP_PORT || 3000, '0.0.0.0').then(async () => {
+    Logger.log(
+      `✅  Application is running on: ${await app.getUrl()}`,
+      'NestJS',
+    );
+  });
 }
-bootstrap();
+
+bootstrap().catch((e) => {
+  Logger.error('❌  Error starting server', e, 'NestJS', false);
+  throw e;
+});
